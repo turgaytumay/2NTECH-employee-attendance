@@ -1,0 +1,188 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h2, h3 {
+    color: #2c3e50;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="date"],
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd0d5;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="date"]:focus,
+form input[type="number"]:focus,
+form select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+form button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}
+
+.messages {
+    margin-bottom: 20px;
+}
+
+.messages p {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.messages p.error {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.messages p.success {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.messages p.info {
+    background-color: #3498db;
+    color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.approve {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+button.approve:hover {
+    background-color: #27ae60;
+}
+
+button.deny {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+button.deny:hover {
+    background-color: #c0392b;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    table, form {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    form, .container {
+        padding: 10px;
+    }
+
+    table th, table td {
+        padding: 8px 10px;
+    }
+}

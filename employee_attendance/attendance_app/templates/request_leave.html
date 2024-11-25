@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>İzin Talep Et</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>İzin Talep Et</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Başlangıç Tarihi:</label>
+        <input type="date" name="start_date" required><br>
+        <label>Bitiş Tarihi:</label>
+        <input type="date" name="end_date" required><br>
+        <button type="submit">Talep Et</button>
+    </form>
+    <a href="{% url 'employee_dashboard' %}">Geri Dön</a>
+</body>
+</html>

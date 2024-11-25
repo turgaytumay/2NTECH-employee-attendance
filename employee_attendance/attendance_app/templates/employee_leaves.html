@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kullandığım İzinler</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>Kullandığım İzinler</h2>
+    <table>
+        <tr>
+            <th>Başlangıç Tarihi</th>
+            <th>Bitiş Tarihi</th>
+        </tr>
+        {% for leave in leave_requests %}
+        <tr>
+            <td>{{ leave.start_date }}</td>
+            <td>{{ leave.end_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'employee_dashboard' %}">Geri Dön</a>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Personel Paneli</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Hoşgeldiniz, {{ request.user.username }}</h2>
+        <p>Yıllık izin günleriniz: <strong>{{ request.user.annual_leave }}</strong></p>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if not attendance.check_in %}
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="action" value="check_in">Giriş Yap</button>
+            </form>
+        {% else %}
+            <p>Giriş Saati: {{ attendance.check_in }}</p>
+            {% if not attendance.check_out %}
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="action" value="check_out">Çıkış Yap</button>
+                </form>
+            {% else %}
+                <p>Çıkış Saati: {{ attendance.check_out }}</p>
+            {% endif %}
+        {% endif %}
+
+        <div class="links">
+            <a href="{% url 'employee_leaves' %}" class="button">Kullandığım İzinler</a><br>
+            <a href="{% url 'request_leave' %}" class="button">İzin Talep Et</a><br>
+            <a href="{% url 'notifications' %}" class="button">Bildirimlerim</a><br>
+            <a href="{% url 'logout' %}" class="button">Çıkış Yap</a>
+        </div>
+    </div>
+</body>
+</html>

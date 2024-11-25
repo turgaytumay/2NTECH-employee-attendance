@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Personellere İzin Tanımla</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>Personellere İzin Tanımla</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>Personel Seçin:</label>
+        <select name="employee">
+            {% for employee in employees %}
+            <option value="{{ employee.id }}">{{ employee.username }}</option>
+            {% endfor %}
+        </select><br>
+        <label>İzin Gün Sayısı:</label>
+        <input type="number" name="days" step="0.5" required><br>
+        <button type="submit">İzin Ekle</button>
+    </form>
+    {% for message in messages %}
+        <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+    <a href="{% url 'manager_dashboard' %}">Geri Dön</a>
+</body>
+</html>

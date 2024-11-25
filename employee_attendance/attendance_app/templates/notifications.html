@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bildirimlerim</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>Bildirimlerim</h2>
+    {% if notifications %}
+        <ul>
+            {% for notification in notifications %}
+            <li>{{ notification.message }} - {{ notification.created_at }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Yeni bildiriminiz yok.</p>
+    {% endif %}
+    <a href="{% if request.user.is_manager %}{% url 'manager_dashboard' %}{% else %}{% url 'employee_dashboard' %}{% endif %}">Geri Dön</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aylık Rapor</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>Aylık Rapor</h2>
+    {% if report %}
+        <table>
+            <tr>
+                <th>Personel</th>
+                <th>Toplam Çalışma Saati</th>
+            </tr>
+            {% for item in report %}
+            <tr>
+                <td>{{ item.employee.username }}</td>
+                <td>{{ item.total_hours|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Bu ay için rapor bulunmamaktadır.</p>
+    {% endif %}
+    <a href="{% url 'manager_dashboard' %}">Geri Dön</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yönetici Paneli</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h2>Yönetici Paneli</h2>
+    <h3>Personel Listesi</h3>
+    <table>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Yıllık İzin</th>
+            <th>Geç Kalma Dakikası</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.username }}</td>
+            <td>{{ employee.annual_leave }}</td>
+            <td>
+                {% with total_late=employee.attendance_set.aggregate(Sum('late_minutes')) %}
+                    {{ total_late.late_minutes__sum|default:0 }}
+                {% endwith %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'leave_requests' %}">İzin Talepleri</a><br>
+    <a href="{% url 'logout' %}">Çıkış Yap</a>
+</body>
+</html>
